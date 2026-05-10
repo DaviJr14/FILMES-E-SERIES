@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmeFlix - Streaming de Filmes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>🎬 FilmeFlix</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#trending" class="nav-link">Tendências</a></li>
+                    <li><a href="#favorites" class="nav-link">Favoritos</a></li>
+                </ul>
+            </nav>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar filme..." class="search-input">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2 id="heroTitle">Bem-vindo ao FilmeFlix</h2>
+            <p id="heroDesc">Assista filmes incríveis em qualquer dispositivo</p>
+            <button class="btn-primary" onclick="scrollToMovies()">Ver Filmes</button>
+        </div>
+        <div class="hero-background" id="heroBg"></div>
+    </section>
+
+    <!-- Trending Section -->
+    <section class="trending-section" id="trending">
+        <div class="container">
+            <h2>🔥 Tendências</h2>
+            <div class="movies-grid" id="trendingMovies"></div>
+        </div>
+    </section>
+
+    <!-- All Movies Section -->
+    <section class="movies-section">
+        <div class="container">
+            <h2>🎥 Todos os Filmes</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="ação">Ação</button>
+                <button class="filter-btn" data-filter="drama">Drama</button>
+                <button class="filter-btn" data-filter="comédia">Comédia</button>
+                <button class="filter-btn" data-filter="ficção científica">Ficção Científica</button>
+                <button class="filter-btn" data-filter="romance">Romance</button>
+                <button class="filter-btn" data-filter="terror">Terror</button>
+                <button class="filter-btn" data-filter="aventura">Aventura</button>
+                <button class="filter-btn" data-filter="série">Série</button>
+            </div>
+            <div class="movies-grid" id="moviesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Favorites Section -->
+    <section class="favorites-section" id="favorites">
+        <div class="container">
+            <h2>❤️ Meus Favoritos</h2>
+            <div class="movies-grid" id="favoritesGrid"></div>
+            <p id="noFavorites" class="no-favorites">Nenhum filme favoritado ainda!</p>
+        </div>
+    </section>
+
+    <!-- Movie Modal -->
+    <div class="modal" id="movieModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <img id="modalPoster" src="" alt="Poster do filme">
+                </div>
+                <div class="modal-right">
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-year" id="modalYear"></p>
+                    <p class="modal-genre" id="modalGenre"></p>
+                    <div class="modal-rating">
+                        <span class="rating-stars" id="modalRating"></span>
+                        <span class="rating-number" id="modalRatingNumber"></span>
+                    </div>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-actions">
+                        <button class="btn-primary btn-large" onclick="playMovie()">▶️ Assistir Agora</button>
+                        <button class="btn-secondary btn-large" id="favBtn" onclick="toggleFavorite()">❤️ Favoritar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Player Modal -->
+    <div class="player-modal" id="playerModal">
+        <button class="player-close" onclick="closePlayer()">&times;</button>
+        <div class="player-container">
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
+            <div class="player-info">
+                <h3 id="playerTitle"></h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Button -->
+    <div class="admin-button">
+        <a href="admin.html">⚙️ Admin</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FilmeFlix. Todos os direitos reservados.</p>
+            <p>Desenvolvido com ❤️ para você</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
