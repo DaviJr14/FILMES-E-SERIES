@@ -20,129 +20,16 @@ const moviesDatabase = [
     {
         id: 1,
         type: 'movie',
-        title: "Inception",
-        year: 2010,
-        genre: "ficção científica",
+        title: "UM INSCRITO ME DESAFIOU E EU CHAMEI ELE PRO CANAL 🤯😱",
+        year: 2026,
+        genre: "comedia",
         rating: 8.8,
         poster: "https://via.placeholder.com/200x300?text=Inception",
-        description: "Um ladrão especializado em roubar segredos corporativos através da tecnologia de compartilhamento de sonhos recebe a tarefa impossível de plantar uma ideia.",
-        videoUrl: "https://www.youtube.com/embed/YoHD3HAMNDc",
-        videoType: "youtube"
+        description: "O vídeo de hoje ficou INSANO!",
+        videoUrl: "file:///C:/Users/aluno/Downloads/YTDown_YouTube_UM-INSCRITO-ME-DESAFIOU-E-EU-CHAMEI-ELE-_Media_03rlFUkHTZA_001_1080p.mp4",
+        videoType: "mp4"
     },
-    {
-        id: 2,
-        type: 'movie',
-        title: "The Dark Knight",
-        year: 2008,
-        genre: "ação",
-        rating: 9.0,
-        poster: "https://via.placeholder.com/200x300?text=Dark+Knight",
-        description: "Quando o assassino conhecido como Coringa surge, Batman enfrenta seu maior desafio e suas habilidades são testadas.",
-        videoUrl: "https://www.youtube.com/embed/EXeTwQWrcwY",
-        videoType: "youtube"
-    },
-    {
-        id: 3,
-        type: 'movie',
-        title: "Parasite",
-        year: 2019,
-        genre: "drama",
-        rating: 8.6,
-        poster: "https://via.placeholder.com/200x300?text=Parasite",
-        description: "Uma família de baixa renda se infiltra na casa de uma família rica, assumindo identidades falsas para emprego.",
-        videoUrl: "https://www.youtube.com/embed/5xH0HfJHsaY",
-        videoType: "youtube"
-    },
-    {
-        id: 4,
-        type: 'movie',
-        title: "The Hangover",
-        year: 2009,
-        genre: "comédia",
-        rating: 7.7,
-        poster: "https://via.placeholder.com/200x300?text=Hangover",
-        description: "Três amigos despertam sem lembrança de como chegaram até ali após uma noite maluca em Las Vegas.",
-        videoUrl: "https://www.youtube.com/embed/1FJ6L8gfJVc",
-        videoType: "youtube"
-    },
-    {
-        id: 5,
-        type: 'movie',
-        title: "Forrest Gump",
-        year: 1994,
-        genre: "drama",
-        rating: 8.8,
-        poster: "https://via.placeholder.com/200x300?text=Forrest+Gump",
-        description: "Um homem com baixa inteligência, mas puro coração, testemunha e participa de vários eventos definidores do século XX.",
-        videoUrl: "https://www.youtube.com/embed/bBqNyC6zVzo",
-        videoType: "youtube"
-    },
-    {
-        id: 6,
-        type: 'movie',
-        title: "Mad Max: Fury Road",
-        year: 2015,
-        genre: "ação",
-        rating: 8.1,
-        poster: "https://via.placeholder.com/200x300?text=Mad+Max",
-        description: "Em um futuro pós-apocalíptico, um homem solitário se vê preso em uma perseguição de alta velocidade no deserto.",
-        videoUrl: "https://www.youtube.com/embed/_r9nXQJqh7E",
-        videoType: "youtube"
-    },
-    {
-        id: 7,
-        type: 'movie',
-        title: "Interstellar",
-        year: 2014,
-        genre: "ficção científica",
-        rating: 8.6,
-        poster: "https://via.placeholder.com/200x300?text=Interstellar",
-        description: "Um grupo de astronautas viaja através de um buraco de minhoca em busca de uma nova casa para a humanidade.",
-        videoUrl: "https://www.youtube.com/embed/zSID6PrCVH0",
-        videoType: "youtube"
-    },
-    {
-        id: 8,
-        type: 'movie',
-        title: "The Shawshank Redemption",
-        year: 1994,
-        genre: "drama",
-        rating: 9.3,
-        poster: "https://via.placeholder.com/200x300?text=Shawshank",
-        description: "Dois homens presos formam uma amizade duradoura enquanto planejam escapar de uma prisão.",
-        videoUrl: "https://www.youtube.com/embed/PLl99DlL6b4",
-        videoType: "youtube"
-    },
-    {
-        id: 9,
-        type: 'movie',
-        title: "Superbad",
-        year: 2007,
-        genre: "comédia",
-        rating: 7.6,
-        poster: "https://via.placeholder.com/200x300?text=Superbad",
-        description: "Dois amigos tentam conseguir bebidas alcoólicas para uma festa antes do último dia de aula.",
-        videoUrl: "https://www.youtube.com/embed/TehWc2WKYbI",
-        videoType: "youtube"
-    },
-    {
-        id: 10,
-        type: 'movie',
-        title: "Avatar",
-        year: 2009,
-        genre: "ficção científica",
-        rating: 7.8,
-        poster: "https://via.placeholder.com/200x300?text=Avatar",
-        description: "Um ex-Marine é enviado para Pandora, onde ele deve decidir entre seguir ordens ou proteger o mundo dos nativos.",
-        videoUrl: "https://www.youtube.com/embed/5PSNL1qE6VE",
-        videoType: "youtube"
-    }
-];
-
-// ====================
-// VARIÁVEIS GLOBAIS
-// ====================
-
+   
 let currentFilter = 'all';
 let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 let currentMovie = null;
