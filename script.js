@@ -26,7 +26,8 @@ const moviesDatabase = [
         rating: 8.8,
         poster: "https://via.placeholder.com/200x300?text=Inception",
         description: "Um ladrão especializado em roubar segredos corporativos através da tecnologia de compartilhamento de sonhos recebe a tarefa impossível de plantar uma ideia.",
-        videoUrl: "https://www.youtube.com/embed/YoHD3HAMNDc"
+        videoUrl: "https://www.youtube.com/embed/YoHD3HAMNDc",
+        videoType: "youtube"
     },
     {
         id: 2,
@@ -37,7 +38,8 @@ const moviesDatabase = [
         rating: 9.0,
         poster: "https://via.placeholder.com/200x300?text=Dark+Knight",
         description: "Quando o assassino conhecido como Coringa surge, Batman enfrenta seu maior desafio e suas habilidades são testadas.",
-        videoUrl: "https://www.youtube.com/embed/EXeTwQWrcwY"
+        videoUrl: "https://www.youtube.com/embed/EXeTwQWrcwY",
+        videoType: "youtube"
     },
     {
         id: 3,
@@ -48,7 +50,8 @@ const moviesDatabase = [
         rating: 8.6,
         poster: "https://via.placeholder.com/200x300?text=Parasite",
         description: "Uma família de baixa renda se infiltra na casa de uma família rica, assumindo identidades falsas para emprego.",
-        videoUrl: "https://www.youtube.com/embed/5xH0HfJHsaY"
+        videoUrl: "https://www.youtube.com/embed/5xH0HfJHsaY",
+        videoType: "youtube"
     },
     {
         id: 4,
@@ -59,7 +62,8 @@ const moviesDatabase = [
         rating: 7.7,
         poster: "https://via.placeholder.com/200x300?text=Hangover",
         description: "Três amigos despertam sem lembrança de como chegaram até ali após uma noite maluca em Las Vegas.",
-        videoUrl: "https://www.youtube.com/embed/1FJ6L8gfJVc"
+        videoUrl: "https://www.youtube.com/embed/1FJ6L8gfJVc",
+        videoType: "youtube"
     },
     {
         id: 5,
@@ -70,7 +74,8 @@ const moviesDatabase = [
         rating: 8.8,
         poster: "https://via.placeholder.com/200x300?text=Forrest+Gump",
         description: "Um homem com baixa inteligência, mas puro coração, testemunha e participa de vários eventos definidores do século XX.",
-        videoUrl: "https://www.youtube.com/embed/bBqNyC6zVzo"
+        videoUrl: "https://www.youtube.com/embed/bBqNyC6zVzo",
+        videoType: "youtube"
     },
     {
         id: 6,
@@ -81,7 +86,8 @@ const moviesDatabase = [
         rating: 8.1,
         poster: "https://via.placeholder.com/200x300?text=Mad+Max",
         description: "Em um futuro pós-apocalíptico, um homem solitário se vê preso em uma perseguição de alta velocidade no deserto.",
-        videoUrl: "https://www.youtube.com/embed/_r9nXQJqh7E"
+        videoUrl: "https://www.youtube.com/embed/_r9nXQJqh7E",
+        videoType: "youtube"
     },
     {
         id: 7,
@@ -92,7 +98,8 @@ const moviesDatabase = [
         rating: 8.6,
         poster: "https://via.placeholder.com/200x300?text=Interstellar",
         description: "Um grupo de astronautas viaja através de um buraco de minhoca em busca de uma nova casa para a humanidade.",
-        videoUrl: "https://www.youtube.com/embed/zSID6PrCVH0"
+        videoUrl: "https://www.youtube.com/embed/zSID6PrCVH0",
+        videoType: "youtube"
     },
     {
         id: 8,
@@ -103,7 +110,8 @@ const moviesDatabase = [
         rating: 9.3,
         poster: "https://via.placeholder.com/200x300?text=Shawshank",
         description: "Dois homens presos formam uma amizade duradoura enquanto planejam escapar de uma prisão.",
-        videoUrl: "https://www.youtube.com/embed/PLl99DlL6b4"
+        videoUrl: "https://www.youtube.com/embed/PLl99DlL6b4",
+        videoType: "youtube"
     },
     {
         id: 9,
@@ -114,7 +122,8 @@ const moviesDatabase = [
         rating: 7.6,
         poster: "https://via.placeholder.com/200x300?text=Superbad",
         description: "Dois amigos tentam conseguir bebidas alcoólicas para uma festa antes do último dia de aula.",
-        videoUrl: "https://www.youtube.com/embed/TehWc2WKYbI"
+        videoUrl: "https://www.youtube.com/embed/TehWc2WKYbI",
+        videoType: "youtube"
     },
     {
         id: 10,
@@ -125,7 +134,8 @@ const moviesDatabase = [
         rating: 7.8,
         poster: "https://via.placeholder.com/200x300?text=Avatar",
         description: "Um ex-Marine é enviado para Pandora, onde ele deve decidir entre seguir ordens ou proteger o mundo dos nativos.",
-        videoUrl: "https://www.youtube.com/embed/5PSNL1qE6VE"
+        videoUrl: "https://www.youtube.com/embed/5PSNL1qE6VE",
+        videoType: "youtube"
     }
 ];
 
@@ -355,28 +365,38 @@ function playMovie() {
     if (currentMovie) {
         document.getElementById('playerTitle').textContent = currentMovie.title;
         
-        // Verificar se é YouTube embed ou arquivo local
         const videoUrl = currentMovie.videoUrl;
+        const videoType = currentMovie.videoType || 'youtube'; // Detectar tipo
         
-        if (videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
+        const playerContainer = document.querySelector('.player-container');
+        playerContainer.innerHTML = ''; // Limpar conteúdo anterior
+        
+        if (videoType === 'youtube' || videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be')) {
             // YouTube embed
-            document.getElementById('videoPlayer').style.display = 'none';
             const iframe = document.createElement('iframe');
-            iframe.id = 'youtubePlayer';
             iframe.width = '100%';
-            iframe.height = 'auto';
+            iframe.height = '500';
             iframe.src = videoUrl;
             iframe.frameborder = '0';
             iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
             iframe.allowFullscreen = true;
-            
-            const playerContainer = document.querySelector('.player-container');
-            playerContainer.innerHTML = '';
             playerContainer.appendChild(iframe);
         } else {
-            // Arquivo local
-            document.getElementById('videoPlayer').style.display = 'block';
-            document.getElementById('videoPlayer').src = videoUrl;
+            // Vídeo local ou link externo
+            const video = document.createElement('video');
+            video.id = 'videoPlayer';
+            video.controls = true;
+            video.style.width = '100%';
+            video.style.maxHeight = '500px';
+            
+            const source = document.createElement('source');
+            source.src = videoUrl;
+            source.type = 'video/mp4';
+            
+            video.appendChild(source);
+            video.innerHTML += 'Seu navegador não suporta o elemento de vídeo.';
+            
+            playerContainer.appendChild(video);
         }
         
         document.getElementById('playerModal').classList.add('active');
@@ -390,14 +410,8 @@ function playMovie() {
 
 function closePlayer() {
     document.getElementById('playerModal').classList.remove('active');
-    document.getElementById('videoPlayer').src = '';
-    document.getElementById('videoPlayer').style.display = 'block';
-    
-    // Remover iframe do YouTube se existir
-    const youtubePlayer = document.getElementById('youtubePlayer');
-    if (youtubePlayer) {
-        youtubePlayer.remove();
-    }
+    const playerContainer = document.querySelector('.player-container');
+    playerContainer.innerHTML = '';
 }
 
 // ====================
